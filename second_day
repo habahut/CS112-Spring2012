@@ -1,0 +1,4 @@
+#1/usr/bin/env python
+
+#the following line prints hello nurse
+print "hello nurse"
