@@ -1,0 +1,15 @@
+git clone "read URL from website" (pulls down folders or files from git)
+
+git add . (Sets up a version for git to take, as a version. It is called a 'commit' also, you can add a brief message to it detailing changes made. The period means everything in current directory. add is the command.)
+
+git push (this actually shoves the file up to the git servers, the delay is useful when you don't have internet but still want to be creating new versions)
+
+git pull (merges the directory on the computer with the one with the server, but in this case overwriting the one on the laptop. Basically, updating to the code as it exists on the site.)
+
+git remote add course (already done, joins my terminal to the course)
+
+git pull course master (What I use to getevery homework; pulls down folders from the server I don't have)
+
+git commit -m "second_day added"  (reserving space)
+
+git turnin  (turn homework in)
