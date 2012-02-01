@@ -12,4 +12,4 @@ git pull course master (What I use to getevery homework; pulls down folders from
 
 git commit -m "second_day added"  (reserving space)
 
-git turnin  (turn homework in)
+./turnin.sh hw01 (turns in the the specified file "hw01")

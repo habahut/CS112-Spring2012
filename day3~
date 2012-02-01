@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+p = 17
+pi = 3.14
+message = " what?"
+sixteen = n
+
+print sixteen
+print type(sixteen)
