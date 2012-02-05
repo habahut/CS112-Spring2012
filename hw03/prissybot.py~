@@ -1,0 +1,38 @@
+#! usr/bin/env/ python
+
+name = raw_input ("Sup bitch enter your name: ")
+response1 = raw_input ("Hello there, %s") %(name)
+print "You mean, /"", response1, "/" sir!"
+
+age = raw_input ("yo how old are you?")
+age += 10
+print "pshh I'm " age, " that means I'm older than you and can tell you waht to do"
+print "whats the remainder of 1 million divided by 12?"
+print 1000000%12, " pshh noob too slow!!"
+
+n1 = raw_input("lets try another math problem, I'll try not to crush you this time... enter a number: ")
+n2 = raw_input("ok now enter another number: ")
+n3 = raw_input("one more: ")
+Canswer1 = n1 + n2 * n3
+Panswer1 = raw_input ("What is %d + %d * %d? ") %(n1,n2,n3)
+
+if Canswer1 = Panswer1:
+    print "wow you got it, you must have counted on your fingers"
+else:
+    print "hahahahahhahahh you suck"
+
+print "ok one more time"
+n1 = raw_input("enter a number: ")
+n2 = raw_input("enter another number: ")
+n3 = raw_input("enter a third number: ")
+Canswer2 = n1 * n2 * n3
+Panswer2 = raw_input ("What is %d * %d * %d? ") %(n1,n2,n3)
+
+if Canswer2 = Panswer2:
+    print "bleh that was easy anyway"
+else:
+    print "hahahahah oh man go back to kindergarden"
+
+print
+print
+print "aight peace noob i'm out"

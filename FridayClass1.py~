@@ -1,0 +1,10 @@
+#  usr/bin/env 
+
+print """
+I wish
+i could write
+haiku"""
+
+
+hex(128)
+

@@ -1,48 +1,54 @@
-#!/usr/bin/env python
-"""
-prissybot.py
+#! usr/bin/env/ python
+import time
 
-CS112 Homework 3:   PrissyBot
+name = raw_input ("Sup, enter your name: ")
+statement = "Hello there, %s say hi to me  " %(name)
+response1 = raw_input (statement)
+print "You mean, \"", response1, "\" sir!"
 
-Prissy bot, the rude chat bot, is just mean!  It does not listen, asks obnoxious questions, and says anything it likes.
-"""
-
-# Step 1:
-# -----------------------
-# Program the following.
-# 
-#    $ python prissybot.py
-#    Enter your name:  Paul
-#   
-#    PrissyBot: Hello there, Paul
-#    Paul: hi bot
-#    PrissyBot: You mean, "hi bot, sir!"
-# 
-# Make sure the user inputs their own name and responses.
+print
 
 
+age = raw_input ("yo how old are you? ")
+age = int(age)
+age += 10
 
-# Step 2:
-# -----------------------
-# Keep adding to the conversation. Make sure that your program 
-# includes the following:
-# 
-#  * get and use input from the user
-#  * 3 math problems
-#     * at least one should get numbers from the user
-#  * at least 3 insults
+print "pshh I'm ", age, " that means I'm older than you and can tell you waht to do"
+print 
 
+print "whats the remainder of 1 million divided by 12? "
+time.sleep(2)
+print "too slow noob its ", 1000000 % 12, "!!!"
+print 
+n1 = raw_input("lets try another math problem, I'll try not to crush you this time... enter a number: ")
+n2 = raw_input("ok now enter another number: ")
+n3 = raw_input("one more: ")
+Canswer1 = int(n1) + int(n2) * int(n3)
 
-# Advanced
-# -------------------------
-# Make sure your prissy bot uses string formatting throughout.  
-# Also, create new programs for the following:
-#  
-#  1. draw some kind of ascii art based on user input
-#  2. print a decimal/binary/hexidecimal conversion table 
-#     * well formated and labeled
-#     * reads 5 numbers from the input (all less than 256)
-#  3. reduce a fraction
-#     * read a numerator and denominator from the user
-#     * ex.  6/4 = 1 2/4
+print Canswer1
+print
+statement = "What is %s + %s * %s " %(n1,n2,n3)
+Panswer1 = raw_input (statement) 
 
+if Canswer1 == int(Panswer1):
+    print "wow you got it, you must have counted on your fingers"
+else:
+    print "hahahahahhahahh you suck"
+
+print "ok one more time"
+n1 = raw_input("enter a number: ")
+n2 = raw_input("enter another number: ")
+n3 = raw_input("enter a third number: ")
+Canswer2 = int(n1) * int(n2) * int(n3)
+statement = "What is %s * %s * %s  "  %(n1,n2,n3)
+Panswer2 = raw_input (statement) 
+
+print
+if Canswer2 == int(Panswer2):
+    print "bleh that was easy anyway"
+else:
+    print "hahahahah oh man go back to kindergarden"
+
+print
+print
+print "aight peace noob i'm out"
