@@ -1,10 +1,21 @@
 #!/usr/bin/env python
-var1=0
-var2=[]
-var3=None
-while var3!="":
-    var3=raw_input()
-    var2.append(float(var3))
-for var in var2:
-    var1+=var
-print var1/len(var2)
+
+inputList = []
+inputNumber = None
+
+#get list of numbers
+while inputNumber != "":
+    inputNumber=raw_input()
+    if inputNumber.isdigit():
+        inputList.append(float(inputNumber))
+
+
+
+total = 0
+
+#sum up the list of numbers
+for num in inputList:
+    total += num
+
+
+print total/len(inputList)        #calculates average of the list
