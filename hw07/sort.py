@@ -8,18 +8,27 @@ I used this:
 """
 from hwtools import input_nums
 
-nums = inputnums()
+nums = input_nums()
 
 print "Before sort:"
 print nums
+last = -1
 
-N=len(nums)-1
-for x in range(N)
+N=len(nums)
+for x in range(N):
     p=x
-    for i in range(x+1 N):
-        if nums[i]<nums[p]:
-            pos=i
-   nums[x],nums[p]=nums[p],nums[x]
+    for i in range(x+1,N):
+        if nums[i] > nums[p]:
+            p=i  
+
+    if not (last == -1):
+        t2 = nums[last]
+        nums[last] = nums[p2]
+        nums[p2] = t2
+          
+    t = nums[x]
+    nums[x] = nums[p]
+    nums[p] = t
 
 print "After sort:"
 print nums
