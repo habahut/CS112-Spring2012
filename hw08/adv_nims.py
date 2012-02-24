@@ -6,12 +6,21 @@
 
 def splitparts(s):
     "split_ints takes a string and returns all chunks.  Chunks are any space separated or comma separated values"
+    l = s.split()
+    
+    return l
     
 def a2idx(c):
     "converts a letter to it's index value"
+    c = c.upper()
+    alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    jk = alphabet.index(c)
+    return jk
 
 def idx2a(i):
     "converts an index to it's letter value"
+    alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    return alphabet[i]
 
 ##############################################
 # Object Functions
@@ -27,6 +36,23 @@ def parse_stones(s):
     >>> parse_stones("0 200 4 5")
     [99, 4 5]
     """
+    l = splitparts(s)
+
+    for i,t in enumerate(l):
+        l[i] = int(l[i])
+        if l[i] > 99:
+            l[i] = 99
+        if l[i] < 0:
+            l[i] = 0
+    
+    done = False
+    while not done:
+        try:
+            l.remove(0)
+        except ValueError:
+            done = True        
+    
+    return l
 
 # moves are [pile, amount] => [int, int]
 
@@ -38,6 +64,16 @@ def parse_move(s):
     >>> parse_move("this isn't valid")
     None
     """
+    
+    move = s.split()
+    if (len(move) == 2):
+        move[0] = a2idx(move[0])
+        move[1] = int(move[1])
+    else:
+        move[0] = "None"
+
+    return move
+    
 
 def valid_move(mv, piles):
     """check if a given move can actually be completed
@@ -52,9 +88,22 @@ def valid_move(mv, piles):
     False
     """
 
+    # mv = the move: [pile 0, 3 stones]
+    # piles = the list of piles
+    valid = False
+
+    if mv[0] == "None":
+        pass
+    else:
+        if (piles[mv[0]] < mv[1]):
+            pass
+        else:
+            valid = True
+
+    return valid
 
 def move(mv, piles):
-    "perform a move"
+    piles[mv[0]] -= mv[1]
 
 #####################################
 #  Output Functions
@@ -62,9 +111,28 @@ def move(mv, piles):
 #####################################
 def header(piles):
     "draw the header of the game table"
+    alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    print "Welcome to advanced Nims!"
+    print
+    p = ""
+    for i,t in enumerate(piles):
+        line = "%4s " %(alphabet[i])
+        p.join(line)
 
+    print p
+    return p
+    
 def prompt(piles, player):
+    print "CALLED THE PROMPT"
     "format the input prompt"
+    p = ""
+    for i in piles:
+        line = "%4d " %(i)
+        print line
+        p.join(line)
+
+    p.join("Player, %s make your move: " %(player))
+    return p
 
 # do not touch, already done
 def separater(piles):
@@ -103,3 +171,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+    #print "final", parse_move("B 3")

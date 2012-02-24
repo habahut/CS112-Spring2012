@@ -84,10 +84,13 @@ def calcMouse():
 
 # also able to move into the wall and then getting stuck instead of
 # being blocked from moving into the wall in the first place
-def playerMove(moveX,moveY, playerMoveCount, playerOrigin, walls):    
-    tX = moveX + playerOrigin[0] - playerMoveCount[0]
-    tY = moveY + playerOrigin[1] - playerMoveCount[1]
+def playerMove(moveX,moveY, playerAbsoluteLocation, walls):    
+    tX = moveX + playerAbsoluteLocation
+    tY = moveY + playerAbsoluteLocation
 
+    mx = 0
+    my = 0
+    
     wallXRange = [0,0]
     wallYRange = [0,0]
 
@@ -129,13 +132,13 @@ def playerMove(moveX,moveY, playerMoveCount, playerOrigin, walls):
     
     #print "big money moves: "
     if canMoveX:
-        playerMoveCount[0] += -moveX
+        mx = -moveX
         #print playerMoveCount[0]
     if canMoveY:
-        playerMoveCount[1] += -moveY
+        my = -moveY
         #print playerMoveCount[1]
 
-    return playerMoveCount
+    return mx,my
 
     """
 
@@ -274,9 +277,11 @@ while not done:
 
     
     if not (playerMoveVector[0] + playerMoveVector[1] == 0):
-        playerMoveCount = playerMove(playerMoveVector[0], playerMoveVector[1], playerMoveCount, SCREEN_CENTER, walls)
-        #playerAbsoluteLocation[0] = SCREEN_CENTER + playerMoveCount[0]
-        #playerAbsoluteLocation[1] = SCREEN_CENTER + playerMoveCount[1]
+        zx,zy= playerMove(playerMoveVector[0], playerMoveVector[1], playerAbsoluteLocation, walls)
+        playerMoveCount[0] += zx
+        playerMoveCount[1] += zy
+        playerAbsoluteLocation[0] = SCREEN_CENTER + playerMoveCount[0]
+        playerAbsoluteLocation[1] = SCREEN_CENTER + playerMoveCount[1]
         
     # need to update playerAbsolutePosition some how so we can
     # keep track of where the player is...
