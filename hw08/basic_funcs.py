@@ -38,14 +38,14 @@ def box(w,h):
         int(w)
         temp = True
     except ValueError:
-        print "Error: Invalid Demensions"
+        print "Error: Invalid Dimensions"
 
     if temp:
         try:
             int(h)
         except ValueError:
             temp = False
-            print "Error: Invalid Demensions"
+            print "Error: Invalid Dimensions"
 
     if temp:
         if (w < 1) or (h < 1):
@@ -117,5 +117,5 @@ if  __name__ == "__main__":
 #       | |
 #       | |
 
-def tree(s1,s2)
-    return "lol"
+#def tree(s1,s2)
+#    return "lol"

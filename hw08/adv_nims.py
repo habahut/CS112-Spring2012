@@ -6,7 +6,7 @@
 
 def splitparts(s):
     "split_ints takes a string and returns all chunks.  Chunks are any space separated or comma separated values"
-    l = s.split()
+    l = s.replace(","," ").split()
     
     return l
     
@@ -117,21 +117,20 @@ def header(piles):
     p = ""
     for i,t in enumerate(piles):
         line = "%4s " %(alphabet[i])
-        p.join(line)
+        p = p.join(line)
 
-    print p
     return p
     
 def prompt(piles, player):
     print "CALLED THE PROMPT"
-    "format the input prompt"
+    
     p = ""
     for i in piles:
         line = "%4d " %(i)
-        print line
-        p.join(line)
+        p = p.join(line)
 
-    p.join("Player, %s make your move: " %(player))
+    p = p.join("Player, %s make your move: " %(player))
+    
     return p
 
 # do not touch, already done
@@ -170,6 +169,6 @@ def main():
     print "Player %d wins!!!" % (player + 1)
 
 if __name__ == "__main__":
-    main()
+    #main()
     
-    #print "final", parse_move("B 3")
+    print header([5,5,5,5,5])
