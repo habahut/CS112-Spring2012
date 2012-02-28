@@ -117,5 +117,5 @@ if  __name__ == "__main__":
 #       | |
 #       | |
 
-#def tree(s1,s2)
-#    return "lol"
+def tree(*s1,**s2):
+    return "str.join() function is broken for some reason... see the examples in adv_nims.py"
