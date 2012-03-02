@@ -33,6 +33,21 @@ You can see the actual data as a table in users_data.txt
 
 def followers(users, *names):
     "find followers for given names"
+    import sets
+
+    print users
+    print
+    print
+    print names
+    print
+
+    follow = Set([])
+    for name in names:
+        follow.add(users[follows])
+
+    print follow
+
+    return follow
 
 
 # 2. underage_follows
