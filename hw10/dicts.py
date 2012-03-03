@@ -104,60 +104,18 @@ def avg_score(title):
 
 def parse_csv(data):
     "parses a csv file into a list of dictionaries"
+    data = data.strip()
 
-    d = data.splitlines()
-    d.pop(0)
-    dt = d.pop(0)
+    data = data.splitline()
+    data = [ data.split(",") for line in data ]
 
-    print dt
-    print " -- "
-    dt.strip()
-    dataDict = {zip(tuple(dt), tuple(data))}
+    data = [ [ cell.strip() for cell in row ] for row in data ]
 
-    print dataDict
+    keys = data[0]
+    csv = []
 
-    return dataDict
-    
-    
-    """
-    print data
-    print "==="
+    for row in data[1:]:
+        csv.append( dict(zip(keys, row)) )
 
-    d = data.splitlines()
-    
-    #d = data.replace(",","")
-    print d
-    print "-------"
-    dt = {}
+    return csv
 
-    line = []
-    c = 0
-
-    e = d[0]
-    e.split()
-    e.strip()
-    print e
-    print "~~~~~~~~~~~~~~~"
-    
-    for entry in d:
-        entry.strip()
-        l = entry.split(",")
-        print l
-        #if c == 0:
-            
-        
-            dt.append(line)
-            print "1", line
-            line = ""
-        else:
-            line.append(entry)
-            print "2",
-    print
-    print "+++++"
-    print dt
-    print "_=-=-=-=-=-==--=-==-=--= =--=-=-==-=--="
-    """
-
-    
-
-    

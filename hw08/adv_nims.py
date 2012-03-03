@@ -69,10 +69,11 @@ def parse_move(s):
     if (len(move) == 2):
         move[0] = a2idx(move[0])
         move[1] = int(move[1])
+        m = move[0],move[1]
     else:
-        move[0] = "None"
+        m = "None"
 
-    return move
+    return m
     
 
 def valid_move(mv, piles):
@@ -92,7 +93,7 @@ def valid_move(mv, piles):
     # piles = the list of piles
     valid = False
 
-    if mv[0] == "None":
+    if mv == None:
         pass
     else:
         if (piles[mv[0]] < mv[1]):
@@ -114,24 +115,21 @@ def header(piles):
     alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     print "Welcome to advanced Nims!"
     print
-    p = ""
+    line = ""
     for i,t in enumerate(piles):
-        line = "%4s " %(alphabet[i])
-        p = p.join(line)
+        line += "%s" %(alphabet[i])
+    line += " | Move"
 
-    return p
+    return line
     
 def prompt(piles, player):
     print "CALLED THE PROMPT"
     
-    p = ""
+    line = ""
     for i in piles:
-        line = "%4d " %(i)
-        p = p.join(line)
-
-    p = p.join("Player, %s make your move: " %(player))
+        line += "%4d" %(i)
     
-    return p
+    return line
 
 # do not touch, already done
 def separater(piles):

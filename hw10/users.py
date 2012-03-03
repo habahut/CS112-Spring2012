@@ -33,21 +33,14 @@ You can see the actual data as a table in users_data.txt
 
 def followers(users, *names):
     "find followers for given names"
-    import sets
+    flwrs = []
 
-    print users
-    print
-    print
-    print names
-    print
-
-    follow = Set([])
     for name in names:
-        follow.add(users[follows])
+        flwrs += [n for n in users if name in users[n]["follows"]]
 
-    print follow
-
-    return follow
+    flwrs = set(flwrs)
+    
+    return flwrs
 
 
 # 2. underage_follows
@@ -58,7 +51,24 @@ def followers(users, *names):
 #          [ "Steve M", "Gerald Q", "Frank L" ]
 def underage_follows(users):
     "find who underage users follow"
+    names = []
+    flwrs = []
 
+    for n in users:
+        if users[n]["age"] <= 12:
+            names.append(n)
+
+    for n in names:
+        for i in users[n]["follows"]:
+            flwrs.append(i)
+
+    for n in names:
+        if n in flwrs:
+            flwrs.remove(n)
+            
+    flwrs = set(flwrs)
+    
+    return flwrs
 
 
 # 3. foaf 
@@ -69,7 +79,29 @@ def underage_follows(users):
 
 def foaf(users, name):
     "find everyone whom a user's followers follow (not including user)"
+    f = users[name]["follows"]
+    print name
+    friends = []
+    friends2 = []
+    
+    for n in f:
+        friends += users[n]["follows"]
 
+    for n in friends:
+        friends2 += users[n]["follows"]
+        
+    if name in friends2:
+        friends2.remove(name)
+        
+    friends2 = set(friends2)
+    
+    print "FOAF:"
+    print friends2
+    print
+    print "==================="
+    print
+    
+    return friends2
 
 
 # 4. age_demographics
@@ -87,7 +119,8 @@ def foaf(users, name):
 
 def age_demographics(users):
      "calculate age demographics"
-
+     #ageToNames = {}
+    
 
 
 # UNCOMMENT THE FOLLOWING TO WRITE YOUR OWN CODE USING USERS

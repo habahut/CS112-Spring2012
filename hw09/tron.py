@@ -3,6 +3,31 @@
 tron.py
 
 The fucking awesome game of tron programmed by Trevor Haba himself. Press the space bar to start the game.  Player 1 (red) is controlled with WSAD and player 2 (blue) is controlled with the arrow keys.  Once the game is over, press space to reset and then again to restart.  Escape quits the program.
+
+
+
+
+
+
+GOOD PLAN:
+
+make tiles:
+TILE = 10
+WIDTH = 60
+HEIGHT = 80
+
+screen_width = (tile*width, tile*height)
+draw.rect(x*tile, y*tile)
+
+make the tile the size of the players unit
+then you can just check the tile grid instead of by pixels
+will make error checking easier when the player is of width > 1
+
+ _______
+|   |x,y|
+---------
+|   |   |
+---------
 """
 
 import pygame
@@ -123,6 +148,7 @@ def aiThink(spotsX, spotsY, direction, BOUNDS, opponentSpotsX, opponentSpotsY):
                     #print "HERE", ty,tx
                     ty = -1
                     tx = 0
+                    break
                 else:
                     #print "THERE", ty,tx
                     ty = 1
@@ -156,10 +182,12 @@ def aiThink(spotsX, spotsY, direction, BOUNDS, opponentSpotsX, opponentSpotsY):
                     #print "WOMP", ty,tx
                     tx = -1
                     ty = 0
+                    break
                 else:
                     #print "SLAM",ty,tx
                     tx = 1
                     ty = 0
+                    break
             else:
                 for i,opponentY in enumerate(opponentSpotsY):
                     if (opponentY == futureY):
@@ -171,6 +199,7 @@ def aiThink(spotsX, spotsY, direction, BOUNDS, opponentSpotsX, opponentSpotsY):
                         if (spotsX[0] == spotsX[i]):
                             print "DODGING SELF"
                             tx,ty = aiChangeDirection(tx,ty)
+                            break
                             
                     futureY += ty
     ##
