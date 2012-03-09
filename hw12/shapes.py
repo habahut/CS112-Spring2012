@@ -5,20 +5,124 @@
 # methods for calculating the area and perimeter of the 
 # shape.
 #
-# After that, create classes for Rectangles, Squares, 
-# and Circles.
-# 
-# When done, the code should work like this.
-#     >>> r = Rect(3,4)
-#     >>> print r.area()
-#     12
-#     >>> sq = Square(5)
-#     >>> print sq.perimeter()
+
+from math import sqrt
+class Shape(object):
+    def area(self):
+        pass
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    x = 0
+    y = 0
+    
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+
+    def area(self):
+        return self.x * self.y
+
+    def perimeter(self):
+        return self.x*2 + self.y*2
+    
+class Square(Rectangle):
+    s = 0
+    
+    def __init__(self,s):
+        self.s = s
+
+    def area(self):
+        return self.s**2
+
+    def perimeter(self):
+        return self.s*4
+
+    
+class Circle(Shape):
+    radius = 0
+
+    def __init__(self,r):
+        self.radius = r
+
+    def area(self):
+        return 3.14 * self.radius**2
+
+    def perimeter(self):
+        return 3.14 * 2 * self.radius
+
+class Polygon(Shape):
+    points = []
+
+    def __init__(self, *p):
+        for point in p:
+            self.points.append(point)
+
+    def perimeter(self):
+        dist = 0
+        for i in range(0,len(self.points)):
+            x,y = self.points[i]
+            if (i+1 == len(self.points)):
+                i = -1
+                
+            nX,nY = self.points[i+1]
+            dx = x - nX
+            dy = y - nY
+            dx = dx**2
+            dy = dy**2
+
+            dist += sqrt(dx + dy)        
+    
+        return dist
+
+    def area(self):
+        if len(self.points) > 2:
+            area = 0.0
+            for i in range(0,len(self.points)-1):
+                x,y = self.points[0]
+                x2,y2 = self.points[i]
+                x3,y3 = self.points[i+1]
+                
+                aX = x2 - x
+                aY = y2 - y
+
+                bX = x3 - x2
+                bY = y3 - y2
+
+                cX = x - x3
+                cY = y - y3
+
+                d1 = aX**2 + aY**2
+                aLength = sqrt(d1)
+
+                d1 = bX**2 + bY**2
+                bLength = sqrt(d1)
+
+                d1 = cX**2 + cY**2
+                cLength = sqrt(d1)
+
+                perimeter = (aLength + bLength + cLength)/2
+
+                herrons = (perimeter-aLength)
+                herrons *= (perimeter-bLength)
+                herrons *= (perimeter-cLength)
+                herrons *= perimeter
+                
+                area += sqrt(float(herrons))
+                #area += herrons
+
+        return area
+        
+r = Rectangle(3,4)
+print r.area()
+sq = Square(5)
+print sq.perimeter()
 #     20
-#     >>> print isinstance(sq, Rectangle)
+print isinstance(sq, Rectangle)
 #     True
-#     >>> c = Circle(3)
-#     >>> print c.area()
+c = Circle(3)
+print c.area()
 #     28.274333882308138
 #     
 

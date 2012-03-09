@@ -31,6 +31,70 @@
 #    5
 #
 
+from math import sqrt
+class Point(object):
+    x = 0
+    y = 0
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def move(self, x,y):
+        self.x = x
+        self.y = y
+
+    def translate(self,x,y):
+        self.x += x
+        self.y += y
+
+    def distance(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        dx = dx**2
+        dy = dy**2
+
+        dist = sqrt(dx + dy)
+
+        return dist
+
+    def slope(self, other):
+        mx = self.x - other.x
+        my = self.y - other.y
+
+        return my/mx
+
+    def extrapolate(self, slope, distance):
+        x = self.x + (slope * distance)
+        y = self.y + (slope * distance)
+
+        return Point(x,y)
+
+
+    def __str__(self):
+        return  str(self.x)+ "," +str(self.y)
+
+    def __eq__(self, other):
+        if isinstance(other,Point):
+            if other.x == self.x:
+                if other.y == self.y:
+                    return True
+
+        return False
+
+a = Point(0,0)
+b = Point(0,0)
+b.move(2, 2)
+print b.x, b.y
+
+b.translate(1,2)
+print b.x, b.y
+print a.distance(b)
+print Point(3,4)
+a = Point(1,2)
+b = Point(1,2)
+print a == b
+
 
 # Advanced Section:
 # ---------------------------------------
