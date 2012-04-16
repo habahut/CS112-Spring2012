@@ -1,0 +1,119 @@
+	Students
+	Faculty
+Bottles
+Bad Jokes
+	Staff
+Buildings
+Courses
+Dorms
+Food Buildings
+Administrative Food Buildings
+Library
+Division System
+Social Justice
+Community Service
+	Drop outs
+	Alumni
+Semesters
+Death Fest
+Meds
+Cigarrettes
+Gazebos
+Arson
+
+
+
+
+Categories:
+	People
+		staff faculty etc...
+	Locations
+	Concepts
+	Activities
+	Items
+	
+
+organization discussion
+
+Person
+	Students
+		Drop outs
+		Alumni
+Staff
+Faculty
+
+
+
+Person:
+	ID # / card
+	Residence Location
+	Current Location
+	Meal Plan
+	hasJob
+	hasItems
+	drug Influences
+	Schedule (stack)
+	TiredLevel
+	Interests (list of concepts involved with)
+	PCLevel
+	
+	Functions:
+		Interaction with other person
+		Interact with Building
+		Change Location
+		Lunchbreak
+		Eat
+		Use Bathroom
+		Compare Schedules(other person)
+		Sleep	
+		Attempt to Learn
+		Attempt to explain
+		Interact with Concept
+		Use Item on Building
+		Use Item on Other(person)
+		Use Item on Item
+		Take Action
+
+
+Students (Can also be staff, working at saga etc):
+	Courses Taken
+	Current Courses
+	Housing Points
+	Div Status
+	Intoxication level		
+	Outrage
+
+	Functions:
+		go to class
+		Interact Advisor
+		Interact Faculty
+		Do Homework
+
+
+Alumni(inherits student)
+	isEmployed
+	JobInvolesMajor
+	isJanitor
+	isInstance(staff)
+	
+
+Dropouts(inherits student, possibly inherits janitor)
+	isEnrolled?
+
+	
+	Functions:
+		getSchedule: return none
+
+
+Faculty (Teachers):				
+	
+
+
+staff (everybody else):
+	
+
+
+	casa, geo, all the other resource centers
+	phys plant
+	saga workers
+		

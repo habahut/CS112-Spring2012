@@ -1,0 +1,51 @@
+http://pygame.org/docs/ref/sprite.html
+	http://pygame.org/docs/ref/sprite.html#pygame.sprite.Sprite
+
+class Player(Sprite):
+	def update(can redefine stuff here)
+
+sprite.kill()
+	removes this sprite from all groups
+	DO NOT MAKE A GLOBAL VARIABLE REFERENCING ANY SPRITE
+	KILL WILL NOT REMOVE THIS
+
+
+
+sprite groups are the equivalent of arrays for sprites
+http://pygame.org/docs/ref/sprite.html#pygame.sprite.Group
+
+
+Group.clear(pass it the background image):
+	will redraw only the parts where the sprites were
+	will keep backgrounds constant
+
+
+pygame.image()
+	ONLY USE BITMAPS
+
+
+->>>>group_single saves a single sprite in the group
+
+pygame.sprite.spirtecollide() 	     see if the sprite impacts the group
+
+
+groupcollide(bullets, enemies, True, True)
+	for every bullet that hits an enemy, kill the bullet, kill the enemy
+			actually runs the "kill()" method, which can be rewritten
+
+group collide(bullets, enemies, False, True)
+	same but the bullet goes through enemies
+
+re-write the kill function for player (and maybe the bullet) to instead decrease health
+
+
+to make a custom array, inherit "list" class:
+class myList(list):
+		
+class Horrible(object):
+	def __getattr__(self, k):
+		return k
+
+	h = Horrible()
+	print h.has_key(k)		sine "has_key" is not defined in the object it calls the __getattr__
+	"has_key"

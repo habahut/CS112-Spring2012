@@ -21,6 +21,7 @@ class Level(object):
 
     def __init__(self):
         self.bounds = Rect((0,0), LEVEL_SIZE)
+        print "self.bounds = ", self.bounds
 
         # make rects for level
         self.blocks = Group(

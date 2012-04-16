@@ -1,0 +1,34 @@
+Github Instructions
+
+
+only one person creates git repository
+global setup is already finished
+do Next Steps thing
+
+before doing commit step: also copy the .get -ignore file from the homework file into your folder
+can set access in the admin panel
+
+git add .					flags the current directory to be committed, the . means the current directory, can instead specify specific files
+git commit -m "message of what you did"
+git push					upload your stuff
+
+				do above 3 in order
+
+git checkout -b player				creates a new branched called "player"
+git checkout master				moves to the master branch
+
+
+git fetch origin				get the all the changes
+git stash					hide the changes I've done
+git merge origin/master				
+git stash pop					
+
+TO MERGE BRANCHES
+git checkout master	
+git merge player				will merge the listed directory with the current directory
+
+TO SHARE CODE
+git push origin enemies				(origin is the default name for the root branch)
+git fetch					grabs the changes
+
+git checkout -b scenemgr			changes the directory

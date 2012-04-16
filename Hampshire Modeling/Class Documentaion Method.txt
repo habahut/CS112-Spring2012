@@ -1,0 +1,52 @@
+class planning
+
+
+class			super class
+
+responsibilities:
+stuff the class is responisible for tracking
+
+
+collaborators:
+everything related to the class, not inherited or superclass
+
+class Person
+
+	resonsibilities:
+		activities
+
+	collaborators
+		Activity
+
+Class: Activity
+
+	responsibilities:
+		description
+		legal
+		costs
+		
+	collaborators:
+		costs
+		person
+
+
+class cost:
+
+responsibilities:
+	type
+	amount
+
+collaborators:
+	related to activities
+	
+
+class Course
+	responsibilities:
+		subject
+		professor
+		students
+
+	collaborators:
+		student
+		faculty
+		place

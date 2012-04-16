@@ -100,7 +100,7 @@ from pygame import Rect
 
 MAX_DEPTH = 10
 class QuadTreeNode(object):
-
+    
     def __init__(self, rect, depth = 0):
         self.rect = rect
         self.data = None
@@ -114,6 +114,7 @@ class QuadTreeNode(object):
         self.depth = depth
 
     def add_point(self, point):
+        #print "ADDING POINT: ", point
         # if we don't have data, just add it
         if self.data is None and not self.is_split:
             self.data = point
@@ -150,13 +151,97 @@ class QuadTreeNode(object):
         else:
             self.se.add_point(point)
 
-    # def get_points(self):
-    
+    def get_points(self):
+        temp = self._get_points()
 
-    # def get_rects(node, rects=None):
-    #   if rects is None:
-    #       rects = []
+        #print "THE POINTS ARE: ",temp
+
+        return temp
+
+    def _get_points(self):
+        ## look in each individula quad tree (nw, ne, sw, se)
+        # check if they have their own quadtrees, If they do, search those quadtrees
+        # else return their data values
+
+        returnList = []
+
+        if self.is_split:
+            #check each branch
+            temp = self.nw.get_points()
+            if not len(temp) == 0:
+                for p in temp:
+                    returnList.append(p)
+                
+            temp = self.ne.get_points()
+            #if not (temp is None):
+            if not len(temp) == 0:
+                for p in temp:
+                    returnList.append(p)
+                
+            temp = self.sw.get_points()
+            if not len(temp) == 0:
+                for p in temp:
+                    returnList.append(p)
+                
+            temp = self.se.get_points()
+            if not len(temp) == 0:
+                for p in temp:
+                    returnList.append(p)
+
+        # branch is not split
+        else:
+            if not(self.data is None):
+                returnList.append(self.data)
+    
+        return returnList          
+
+    def get_rects(self):
+        a = self._get_rects()
+
+        #print "ALL RECTS: ", a
+        #print "Lenght: ", len(a)
+        return a
+
+    def _get_rects(self):
+        allRects = []
+
+        allRects.append(self.rect)
+        
+        if self.is_split:
+            allRects.append(self.nw.get_rects())
+            allRects.append(self.ne.get_rects())
+            allRects.append(self.sw.get_rects())
+            allRects.append(self.se.get_rects())
+
+        return allRects
+        
 
 
     # Advanced
-    # def collidepoint(self, point):
+    def collidepoint(self, point):
+        if self.rect.collidepoint(point):      
+            if self.is_split:
+                #quadtree.rect.collidepoint
+                if self.ne.rect.collidepoint(point):
+                    #quadtree.collide point
+                    #calling on different things
+                    temp = self.ne.collidepoint(point)
+                elif self.nw.rect.collidepoint(point):
+                    temp = self.nw.collidepoint(point)
+                elif self.sw.rect.collidepoint(point):
+                    temp = self.sw.collidepoint(point)
+                else:
+                    temp = self.se.collidepoint(point)
+
+                return temp 
+
+            else:
+                return self.rect
+        else:
+            return None
+            
+
+
+
+
+        
